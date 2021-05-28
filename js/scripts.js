@@ -1,32 +1,16 @@
 function newItem() {
-    //1. Adding a new item to the list of items: 
-    //let li = document.createElement('li')
+
+    // 1. Adding a new item to the list:
     let li = $('<li></li>');
-    //let inputValue = document.getElementById('input').value;
     let inputValue = $('#input').val();
-    // let text = document.createTextNode(inputValue);
-    // li.appendChild(text);
     li.append(inputValue);
-    // if (inputValue === '') {
-    //     alert("You must write something!");
-    //   } else {
-    //     let list = document.querySelector('#list');
-    //     list.appendChild(li);
-    //   }
     if (inputValue === '') {
         alert('You must enter something!');
     } else {
         $('#list').append(li);
     }
 
-    // // 2. Crossing out item from list
-
-    // function crossOut() {
-    //     li.classList.toggle('strike');
-    // }
-
-    // li.addEventListener('dblclick', crossOut);
-
+    // 2. Crossing out item from list
     function crossOut() {
         li.toggleClass('strike');
     }
@@ -35,20 +19,11 @@ function newItem() {
         li.toggleClass('strike');
     });
 
-
-    // // 3a Adding the delete button X
-
-    // let crossOutButton = document.createElement('crossOutButton');
-    // crossOutButton.appendChild(document.createTextNode('X'));
-    // li.appendChild(crossOutButton);
-
-    // crossOutButton.addEventListener('click', DeleteListItem);
+   // 3a Adding the delete button X
 
     let crossOutButton = $('<crossOutButton></crossOutButton>');
     crossOutButton.append(document.createTextNode('X'));
     li.append(crossOutButton);
-
-
 
     // 3b. Adding class: .delete {display: none} from the CSS:
     function deleteListItem() {
@@ -60,9 +35,7 @@ function newItem() {
         li.addClass('delete')
     }
 
-
-
-    //Reordering items: already in jquery
+    //Reordering items: 
     $('#list').sortable();
 
 }
